@@ -76,6 +76,11 @@ class Personnel implements UserInterface
      */
     private $Categorie;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Grade1::class)
+     */
+    private $Grade;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -241,6 +246,18 @@ class Personnel implements UserInterface
     public function setCategorie(?Categorie $Categorie): self
     {
         $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    public function getGrade(): ?Grade1
+    {
+        return $this->Grade;
+    }
+
+    public function setGrade(?Grade1 $Grade): self
+    {
+        $this->Grade = $Grade;
 
         return $this;
     }
