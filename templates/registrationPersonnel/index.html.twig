@@ -17,6 +17,7 @@
                 <th>Telephone</th>
                 <th>DateNaissance</th>
                 <th>Bureau</th>
+                <th>Categorie</th>
                
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                 <td>{{ personnel.Telephone }}</td>
                 <td>{{ personnel.DateNaissance ? personnel.DateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ personnel.bureau.numero }}</td>
+                <td>{{ personnel.categorie.libelle }}</td>
                 
              
                 

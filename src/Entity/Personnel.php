@@ -71,6 +71,11 @@ class Personnel implements UserInterface
      */
     private $Bureau;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class)
+     */
+    private $Categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,6 +229,18 @@ class Personnel implements UserInterface
     public function setBureau(?Bureau $Bureau): self
     {
         $this->Bureau = $Bureau;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->Categorie;
+    }
+
+    public function setCategorie(?Categorie $Categorie): self
+    {
+        $this->Categorie = $Categorie;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Bureau;
+use App\Entity\Categorie;
 use App\Entity\Personnel;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -32,6 +33,10 @@ class RegistrationFormType extends AbstractType
             ->add('Bureau',EntityType::class,[
                 'class'=>Bureau::class,
                 'choice_label'=>'Numero'
+            ])
+            ->add('Categorie',EntityType::class,[
+                'class'=>Categorie::class,
+                'choice_label'=>'Libelle'
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
