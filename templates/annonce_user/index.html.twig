@@ -1,0 +1,26 @@
+{% extends 'base_user.html.twig' %}
+
+{% block title %}Annonce index{% endblock %}
+
+{% block body %}
+    <h1>Les annonces</h1>
+
+    
+        {% for annonce in annonces %}
+            
+              
+                {{ annonce.Titre }}
+                
+            {{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}
+                
+                
+                   
+              
+        {% else %}
+           
+        {% endfor %}
+        
+     {{ knp_pagination_render( annonces )}}
+   
+{% endblock %}
+
