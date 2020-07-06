@@ -2,6 +2,7 @@
 
 {% block title %}Annonce index{% endblock %}
 
+
 {% block body %}
     <h1>Les annonces</h1>
 
@@ -9,9 +10,10 @@
         {% for annonce in annonces %}
             
               
-                {{ annonce.Titre }}
+               <p><a href="{{path('details_annonce',{'id':annonce.id})}}" style="color:blue;"> {{ annonce.Titre }}</a></p>
                 
-            {{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}
+             <p>  {{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</p>
+             <p>*******************************************************************************************************************</p>
                 
                 
                    

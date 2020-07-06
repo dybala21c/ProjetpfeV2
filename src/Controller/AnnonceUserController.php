@@ -31,4 +31,13 @@ class AnnonceUserController extends AbstractController
             'annonces' => $annonce
         ]);
     }
+     /**
+     * @Route("/{id}", name="details_annonce", methods={"GET"})
+     */
+    public function show(Annonce $annonce): Response
+    {
+        return $this->render('annonce_user/show.html.twig', [
+            'annonce' => $annonce,
+        ]);
+    }
 }
