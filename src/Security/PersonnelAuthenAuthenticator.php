@@ -96,7 +96,7 @@ class PersonnelAuthenAuthenticator extends AbstractFormLoginAuthenticator implem
             return new RedirectResponse($targetPath);
         }
 
-      return new RedirectResponse($this->urlGenerator->generate('annonce_user'));
+      return new RedirectResponse($this->urlGenerator->generate('index'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

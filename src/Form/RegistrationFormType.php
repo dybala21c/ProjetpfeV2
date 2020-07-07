@@ -39,7 +39,7 @@ class RegistrationFormType extends AbstractType
                 'class'=>Categorie::class,
                 'choice_label'=>'Libelle'
             ])
-            ->add('Grade1',EntityType::class,[
+            ->add('Grade',EntityType::class,[
                 'class'=>Grade1::class,
                 'choice_label'=>'Libelle'
             ])
