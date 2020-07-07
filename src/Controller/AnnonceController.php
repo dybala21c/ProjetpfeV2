@@ -102,4 +102,6 @@ class AnnonceController extends AbstractController
 
         return $this->redirectToRoute('annonce_index');
     }
+
+
 }
