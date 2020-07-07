@@ -13,9 +13,9 @@ security:
         app_user_provider:
             entity:
                 class: 
-                    App\Entity\Personnel
+                    App\Entity\Admin
                 property:
-                     username
+                     email
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:

@@ -10,25 +10,18 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 forms-right-icons">
                     <div class="section-heading">
-                        <h2>Sign In With <span>Us</span></h2>
-                        <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.
+                        <h2><span>Vous êtes:</span></h2>
+                        <p class="subheading">Sur la page de connexion du personnel
                         </p>
                     </div>
                     <div class="row">
-                        <div class="col-xs-2 icon"><i class="fa fa-bullhorn"></i></div>
+                        <div class="col-xs-2 icon"><i class="fa fa-user"></i></div>
                         <div class="col-xs-10 datablock">
-                            <h4>Powerful Features</h4>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
+                            <h4>Personnel</h4>
+                            <p>Veuillez remplire correctement ces champs pour vous connectez à votre espace personnel</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-2 icon"><i class="fa fa-support"></i></div>
-                        <div class="col-xs-10 datablock">
-                            <h4>Customer Support</h4>
-                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
-                        </div>
-                    </div>
-
+                   
                 </div>
 
 
@@ -40,8 +33,8 @@
                     <div class="form-box">
                         <div class="form-top">
                             <div class="form-top-left">
-                                <h3>Login to our site</h3>
-                                <p>Enter username and password to log on:</p>
+                                <h3>Connectez-vous!</h3>
+                                <p>Entrer votre Username et password :</p>
                             </div>
                             <div class="form-top-right">
                                 <i class="fa fa-key"></i>
@@ -55,8 +48,8 @@
 
                              {% if app.user %}
                               <div class="mb-3">
-                                  You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                                 </div>
+                                  Vous êtes connecté en tant que <span>{{ app.user.username }}</span>, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                              </div>
                              {% endif %}
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
@@ -86,14 +79,14 @@
                                     </div>
                                   #}
 
-                                <button type="submit" class="btn btn-lg btn-primary">Sign in!</button>
+                                <button type="submit" class="btn btn-lg btn-primary">Connexion!</button>
         
                             </form>
                         </div>
                     </div>
 
                     <div class="social-login">
-                        <h3>...or login with:</h3>
+                        <h3>ou connectez-vous avec:</h3>
                         <div class="social-login-buttons">
                             <a class="btn btn-link-1 btn-link-1-facebook" href="#">
                                 <i class="fa fa-facebook"></i> Facebook
