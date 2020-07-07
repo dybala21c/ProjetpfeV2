@@ -3,34 +3,24 @@
 {% block title %}Annonce index{% endblock %}
 
 {% block body %}
-    <h1>Annonce index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>DateAjout</th>
-              
-            </tr>
-        </thead>
-        <tbody>
+    <h1>Annonces</h1>
+        <br>
+        <br>
+    
         {% for annonce in var %}
-            <tr>
-                <td>{{ annonce.id }}</td>
-                <td>{{ annonce.Titre }}</td>
-                <td>{{ annonce.Contenu }}</td>
-                <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
+            
+               
+                <p><a href="#" style="
+                    color:blue;">{{ annonce.Titre }}</a></p>
+                <p>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</p>
+
+                <p>************************************************************************************************************************************</p>
              
-            </tr>
+            
         {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
+           
         {% endfor %}
-        </tbody>
-    </table>
+       
      {{ knp_pagination_render( var )}}
    
 {% endblock %}
