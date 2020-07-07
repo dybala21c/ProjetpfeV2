@@ -29,4 +29,14 @@ class UserController extends AbstractController
             'var' => $annonce,
         ]);
     }
+
+     /**
+     * @Route("/{id}", name="details_user")
+     */
+    public function show(Annonce $annonce)
+    {
+        return $this->render('user/show.html.twig', [
+            'annonce' => $annonce,
+        ]);
+    }
 }
