@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NiveauEtude;
 use App\Form\NiveauEtudeType;
-use App\Repository\NiveauEtudeRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +18,22 @@ class NiveauEtudeController extends AbstractController
     /**
      * @Route("/", name="niveau_etude_index", methods={"GET"})
      */
-    public function index(NiveauEtudeRepository $niveauEtudeRepository): Response
-    {
+    public function index(Request $request, PaginatorInterface $paginatorInterface): Response
+    { 
+        
+        $niveauEtude = new NiveauEtude();
+
+        $donnee = $this->getDoctrine()->getRepository(NiveauEtude::class)->findAll();
+
+        $niveauEtude = $paginatorInterface->paginate(
+            $donnee,
+            $request->query->getInt('page',1),
+            5
+        );
+
+
         return $this->render('niveau_etude/index.html.twig', [
-            'niveau_etudes' => $niveauEtudeRepository->findAll(),
+            'niveau_etudes' => $niveauEtude,
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Bureau;
 use App\Entity\Categorie;
 use App\Entity\Grade1;
+use App\Entity\NiveauEtude;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -36,6 +37,15 @@ class AppFixtures extends Fixture
 
             $grade->setLibelle($faker->name());
             $manager->persist($grade);
+        }
+
+        
+        for ($i=1; $i<=20;$i++)
+        {
+            $niveauEtude =new NiveauEtude();
+
+            $niveauEtude->setLibelle('Niveau'.$i);
+            $manager->persist($niveauEtude);
         }
         $manager->flush();
        
