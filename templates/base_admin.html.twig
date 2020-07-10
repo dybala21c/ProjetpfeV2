@@ -108,7 +108,7 @@
                 <ul class="nav side-menu">
                    <li><a><i class="fa fa-user-o"></i> Employés <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Enseignants</a></li>
+                      <li><a href="{{path('list_enseignant')}}">Enseignants</a></li>
                       <li><a href="{{path('list_personnel')}}">Personnels</a></li>
                       
                     </ul>
@@ -124,9 +124,9 @@
                     <ul class="nav child_menu">
                       <li><a href="{{path('bureau_index')}}">Bureau</a></li>
                       <li><a href="{{path('categorie_index')}}">Categorie</a></li>
-                      <li><a href="#">Mutation</a></li>
-                      <li><a href="#">Notes Professionnelles</a></li>
-                       <li><a href="#">Attestation de travail</a></li>
+                      <li><a href="{{path('specialite_index')}}">Specialite</a></li>
+                      <li><a href="{{path('grade1_index')}}">Grade</a></li>
+                       <li><a href="{{path('niveau_etude_index')}}">Niveau</a></li>
                     </ul>
                   </li>
                   
@@ -137,7 +137,13 @@
                           <li><a href="#">Conférence</a></li>
                       </ul>
                   </li>
-                  <li><a href="#"> Attestation de travail</a></li>
+                    <li><a href="#">Parcours<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a href="#">Sanctions</a></li>
+                          <li><a href="#">Grade</a></li>
+                          <li><a href="#">Attestation Travail</a></li>
+                      </ul>
+                  </li>
                   <li><a href="#"> Sanctions</a></li>
                   <li><a href="#"> Contacts</a></li>
                  

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200706233132 extends AbstractMigration
+final class Version20200709142011 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -27,6 +27,7 @@ final class Version20200706233132 extends AbstractMigration
         $this->addSql('CREATE TABLE bureau (id INT AUTO_INCREMENT NOT NULL, numero INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE categorie (id INT AUTO_INCREMENT NOT NULL, libelle VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE conge (id INT AUTO_INCREMENT NOT NULL, type VARCHAR(255) NOT NULL, date_debut DATE NOT NULL, date_fin DATE NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE enseignant (id INT AUTO_INCREMENT NOT NULL, grade_id INT NOT NULL, bureau_id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, matricule INT NOT NULL, name VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, date_naissance DATE NOT NULL, adresse VARCHAR(255) NOT NULL, telephone INT NOT NULL, nationalite VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_81A72FA1E7927C74 (email), INDEX IDX_81A72FA1FE19A1A8 (grade_id), INDEX IDX_81A72FA132516FE2 (bureau_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE grade1 (id INT AUTO_INCREMENT NOT NULL, libelle VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE mutation (id INT AUTO_INCREMENT NOT NULL, motif VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE note_professionnelle (id INT AUTO_INCREMENT NOT NULL, annee DATE NOT NULL, appreciation VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -35,6 +36,8 @@ final class Version20200706233132 extends AbstractMigration
         $this->addSql('CREATE TABLE seance (id INT AUTO_INCREMENT NOT NULL, type VARCHAR(255) NOT NULL, heure_debut TIME NOT NULL, heure_fin TIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE type_conge (id INT AUTO_INCREMENT NOT NULL, maladie VARCHAR(255) NOT NULL, maternite VARCHAR(255) NOT NULL, annuel VARCHAR(255) NOT NULL, recherche VARCHAR(255) NOT NULL, autres VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE type_seance (id INT AUTO_INCREMENT NOT NULL, cours VARCHAR(255) NOT NULL, td VARCHAR(255) NOT NULL, tp VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE enseignant ADD CONSTRAINT FK_81A72FA1FE19A1A8 FOREIGN KEY (grade_id) REFERENCES grade1 (id)');
+        $this->addSql('ALTER TABLE enseignant ADD CONSTRAINT FK_81A72FA132516FE2 FOREIGN KEY (bureau_id) REFERENCES bureau (id)');
         $this->addSql('ALTER TABLE personnel ADD CONSTRAINT FK_A6BCF3DE32516FE2 FOREIGN KEY (bureau_id) REFERENCES bureau (id)');
         $this->addSql('ALTER TABLE personnel ADD CONSTRAINT FK_A6BCF3DEBCF5E72D FOREIGN KEY (categorie_id) REFERENCES categorie (id)');
         $this->addSql('ALTER TABLE personnel ADD CONSTRAINT FK_A6BCF3DEFE19A1A8 FOREIGN KEY (grade_id) REFERENCES grade1 (id)');
@@ -43,8 +46,10 @@ final class Version20200706233132 extends AbstractMigration
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE enseignant DROP FOREIGN KEY FK_81A72FA132516FE2');
         $this->addSql('ALTER TABLE personnel DROP FOREIGN KEY FK_A6BCF3DE32516FE2');
         $this->addSql('ALTER TABLE personnel DROP FOREIGN KEY FK_A6BCF3DEBCF5E72D');
+        $this->addSql('ALTER TABLE enseignant DROP FOREIGN KEY FK_81A72FA1FE19A1A8');
         $this->addSql('ALTER TABLE personnel DROP FOREIGN KEY FK_A6BCF3DEFE19A1A8');
         $this->addSql('DROP TABLE activite_scientifique');
         $this->addSql('DROP TABLE admin');
@@ -53,6 +58,7 @@ final class Version20200706233132 extends AbstractMigration
         $this->addSql('DROP TABLE bureau');
         $this->addSql('DROP TABLE categorie');
         $this->addSql('DROP TABLE conge');
+        $this->addSql('DROP TABLE enseignant');
         $this->addSql('DROP TABLE grade1');
         $this->addSql('DROP TABLE mutation');
         $this->addSql('DROP TABLE note_professionnelle');

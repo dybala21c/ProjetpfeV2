@@ -4,6 +4,10 @@ security:
             algorithm: auto
         App\Entity\Personnel:
             algorithm: auto
+        App\Entity\Enseignant:
+            algorithm: auto
+
+
 
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -12,10 +16,11 @@ security:
         in_memory: { memory: ~ }
         app_user_provider:
             entity:
-                class: 
-                    App\Entity\Admin
+                class: App\Entity\Personnel
                 property:
-                     email
+                     username
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
@@ -30,6 +35,7 @@ security:
                     - App\Security\AdminAuthenticator
                     - App\Security\PersonnelAuthenAuthenticator
                 entry_point: App\Security\PersonnelAuthenAuthenticator
+
             logout:
                 path: app_logout
                 # where to redirect after logout

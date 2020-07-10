@@ -19,8 +19,8 @@
                 <td>{{ bureau.id }}</td>
                 <td>{{ bureau.Numero }}</td>
                 <td>
-                    <a href="{{ path('bureau_show', {'id': bureau.id}) }}">Afficher<i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a href="{{ path('bureau_edit', {'id': bureau.id}) }}">Modifier<i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('bureau_show', {'id': bureau.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('bureau_edit', {'id': bureau.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
