@@ -16,9 +16,9 @@ security:
         in_memory: { memory: ~ }
         app_user_provider:
             entity:
-                class: App\Entity\Personnel
+                class: App\Entity\Enseignant
                 property:
-                     username
+                    email
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
@@ -34,7 +34,8 @@ security:
                 authenticators:
                     - App\Security\AdminAuthenticator
                     - App\Security\PersonnelAuthenAuthenticator
-                entry_point: App\Security\PersonnelAuthenAuthenticator
+                    - App\Security\EnseignantAuthenticator
+                entry_point: App\Security\AdminAuthenticator
 
             logout:
                 path: app_logout

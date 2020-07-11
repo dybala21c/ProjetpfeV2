@@ -42,30 +42,29 @@
                         </div>
                         <div class="form-bottom">
                             <form role="form" action="" method ="post" class="login-form">
-                             {% if error %}
-                                  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                              {% endif %}
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
 
-                             {% if app.user %}
-                              <div class="mb-3">
-                                  Vous êtes connecté en tant que <span>{{ app.user.username }}</span>, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-                              </div>
-                             {% endif %}
+                                {% if app.user %}
+                                   <div class="mb-3">
+                                      You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                    </div>
+                                {% endif %}
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                                    <input type="email" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" 
-                                    class="form-control" placeholder="Email" aria-describedby="basic-addon1"
-                                    required autofocus>
-                                   
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" 
+                                    class="form-control"  placeholder="Email" aria-describedby="basic-addon1"
+                                     required autofocus>
+                                    
                                 </div>
                                 <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock"></i></span>
-                                    <input type="password" name="password" id="inputPassword" class="form-control" 
-                                     class="form-control" placeholder="Password" aria-describedby="basic-addon1"
-                                    required>
+                                    <input type="password" name="password" id="inputPassword" 
+                                    class="form-control"  placeholder="Password" aria-describedby="basic-addon1" required>
                                     <input type="hidden" name="_csrf_token"
                                          value="{{ csrf_token('authenticate') }}"
-                                          >
+                                          > 
                                   
                                 </div>
                                      {#
