@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Grade1;
 use App\Form\Grade1Type;
-use App\Repository\Grade1Repository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +18,21 @@ class Grade1Controller extends AbstractController
     /**
      * @Route("/", name="grade1_index", methods={"GET"})
      */
-    public function index(Grade1Repository $grade1Repository): Response
+    public function index(Request $request, PaginatorInterface $paginatorInterface): Response
     {
+
+        $grade1 = new Grade1();
+
+        $donnee = $this->getDoctrine()->getRepository(Grade1::class)->findAll();
+
+        $grade1 = $paginatorInterface->paginate(
+            $donnee,
+            $request->query->getInt('page',1),
+            5
+        );
+
         return $this->render('grade1/index.html.twig', [
-            'grade1s' => $grade1Repository->findAll(),
+            'grade1s' => $grade1,
         ]);
     }
 

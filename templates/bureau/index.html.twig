@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Numero</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -20,6 +20,8 @@
                 <td>{{ bureau.Numero }}</td>
                 <td>
                     <a href="{{ path('bureau_show', {'id': bureau.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                <td>
                     <a href="{{ path('bureau_edit', {'id': bureau.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
             </tr>

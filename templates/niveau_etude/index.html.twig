@@ -3,14 +3,14 @@
 {% block title %}NiveauEtude index{% endblock %}
 
 {% block body %}
-    <h1>NiveauEtude index</h1>
+    <h1>Liste des Niveaux d'étude</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -20,6 +20,8 @@
                 <td>{{ niveau_etude.Libelle }}</td>
                 <td>
                     <a href="{{ path('niveau_etude_show', {'id': niveau_etude.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                <td>
                     <a href="{{ path('niveau_etude_edit', {'id': niveau_etude.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
             </tr>
@@ -31,5 +33,5 @@
         </tbody>
     </table>
     {{ knp_pagination_render( niveau_etudes )}}
-    <a href="{{ path('niveau_etude_new') }}">Create new</a>
+    <a href="{{ path('niveau_etude_new') }}">Ajouter</a>
 {% endblock %}

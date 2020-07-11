@@ -3,9 +3,9 @@
 {% block title %}New NiveauEtude{% endblock %}
 
 {% block body %}
-    <h1>Create new NiveauEtude</h1>
+    <h1>Ajouter nouveau Niveau d'étude</h1>
 
     {{ include('niveau_etude/_form.html.twig') }}
 
-    <a href="{{ path('niveau_etude_index') }}">back to list</a>
+    <a href="{{ path('niveau_etude_index') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 {% endblock %}

@@ -3,14 +3,14 @@
 {% block title %}Grade1 index{% endblock %}
 
 {% block body %}
-    <h1>Liste des Grade1</h1>
+    <h1>Liste des Grades</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -20,6 +20,8 @@
                 <td>{{ grade1.Libelle }}</td>
                 <td>
                     <a href="{{ path('grade1_show', {'id': grade1.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                <td>
                     <a href="{{ path('grade1_edit', {'id': grade1.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
             </tr>
@@ -30,6 +32,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {{ knp_pagination_render( grade1s )}}
     <a href="{{ path('grade1_new') }}">Ajouter</a>
 {% endblock %}
