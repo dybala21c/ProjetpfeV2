@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 class EnseignantRegistrationController extends AbstractController
@@ -48,6 +49,8 @@ class EnseignantRegistrationController extends AbstractController
     
      /**
      * @Route("/liste", name="list_enseignant", methods={"GET"})
+     * 
+     * @IsGranted("ROLE_ADMIN") 
      */
     public function index(Request $request,PaginatorInterface $paginatorInterface)
     {

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class RegistrationPersonnelController extends AbstractController
 {
@@ -46,6 +47,8 @@ class RegistrationPersonnelController extends AbstractController
 
      /**
      * @Route("/list", name="list_personnel", methods={"GET"})
+     * 
+     * @IsGranted("ROLE_ADMIN") 
      */
     public function index(Request $request,PaginatorInterface $paginatorInterface)
     {
