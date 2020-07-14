@@ -43,6 +43,7 @@ class RegistrationPersonnelController extends AbstractController
 
         return $this->render('registrationPersonnel/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'type'=> 'Ajouter'
         ]);
     }
 
@@ -98,5 +99,26 @@ class RegistrationPersonnelController extends AbstractController
         }
 
         return $this->redirectToRoute('list_personnel');
+    }
+
+        /**
+     * @Route("/{id}/edit", name="personnel_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Personnel $personnel): Response
+    {
+        $form = $this->createForm(RegistrationFormType::class, $personnel);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('list_personnel');
+        }
+
+        return $this->render('registrationPersonnel/register.html.twig', [
+            'personnel' => $personnel,
+            'registrationForm' => $form->createView(),
+            'type'=> 'Modifier'
+        ]);
     }
 }
