@@ -18,7 +18,6 @@
                 <th>DateNaissance</th>
                 <th>Nationalité</th>
                 <th>Bureau</th>
-                <th>Categorie</th>
                 <th>Grade</th>
                 <th>Niveau d'etude</th>
                 <th>Specialité</th>
@@ -42,7 +41,14 @@
                 <td>{{ enseignant.grade.libelle }}</td>
                 <td>{{ enseignant.niveau.libelle}}</td>
                 <td>{{ enseignant.specialite.libelle }}</td>
-                
+               {#
+                   <td><a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                 
+                <td>
+                    <a href="{{ path('grade1_edit', {'id': grade1.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                </td>
+                #}
              
                 
             </tr>

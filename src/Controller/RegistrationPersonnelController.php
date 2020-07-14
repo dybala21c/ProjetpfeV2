@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Enseignant;
 use App\Entity\Personnel;
 use App\Form\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,5 +67,36 @@ class RegistrationPersonnelController extends AbstractController
         return $this->render('registrationPersonnel/index.html.twig', [
             'personnels' => $personnel
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="personnel_show", methods={"GET"})
+     * 
+     * @IsGranted("ROLE_ADMIN") 
+     */
+    public function show($id)
+    {
+        
+        $personnel = new Personnel();
+
+        $personnel = $this->getDoctrine()->getRepository(Personnel::class)->find($id);
+
+        return $this->render('registrationPersonnel/show.html.twig', [
+            'personnel' => $personnel
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="personnel_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Personnel $personnel): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$personnel->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($personnel);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('list_personnel');
     }
 }

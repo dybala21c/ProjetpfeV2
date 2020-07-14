@@ -6,6 +6,7 @@ use App\Entity\Bureau;
 use App\Entity\Categorie;
 use App\Entity\Grade1;
 use App\Entity\NiveauEtude;
+use App\Entity\Specialite;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -47,6 +48,16 @@ class AppFixtures extends Fixture
             $niveauEtude->setLibelle('Niveau'.$i);
             $manager->persist($niveauEtude);
         }
+
+        for ($i=1; $i<=20;$i++)
+        {
+            $specialite =new Specialite();
+
+            $specialite->setLibelle('specialite'.$i);
+            $manager->persist($specialite);
+        }
+
+
         $manager->flush();
        
         // $product = new Product();

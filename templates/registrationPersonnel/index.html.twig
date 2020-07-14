@@ -36,7 +36,14 @@
                 <td>{{ personnel.bureau.numero }}</td>
                 <td>{{ personnel.categorie.libelle }}</td>
                 <td>{{ personnel.grade.libelle }}</td>
-                
+                <td>
+                    <a href="{{ path('personnel_show', {'id': personnel.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                {#
+                <td>
+                    <a href="{{ path('grade1_edit', {'id': grade1.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                </td>
+                #}
              
                 
             </tr>

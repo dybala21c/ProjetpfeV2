@@ -70,4 +70,5 @@ class EnseignantRegistrationController extends AbstractController
         ]);
     }
 
+    
 }
