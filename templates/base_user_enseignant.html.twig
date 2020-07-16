@@ -53,16 +53,18 @@
 				<span class="icon-bar"></span>
 			  </button>
                         <a class="navbar-brand" href="#">
-                            <h1>Gestion</h1><span>Employé</span></a>
+                           <h1>{{ app.user.name }} </h1><span>{{ app.user.prenom }}</span></a>
                     </div>
                     <div id="navbar" class="collapse navbar-collapse navbar-right">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="{{path('user')}}">Accueil</a></li>
+                            <li class="active"><a href="#">Accueil</a></li>
                             <li><a href="#">Employé</a></li>
                             <li><a href="#">Activités Scientifique</a></li>
                             <li><a href="#">Congé</a></li>
                             <li><a href="#">Sanctions</a></li>
-                            <li><a href="#">Contact</a></li>
+
+                            
+                             <li><a href="{{path('app_logout')}}">Deconnexion</a>
                            
                         </ul>
                     </div>
