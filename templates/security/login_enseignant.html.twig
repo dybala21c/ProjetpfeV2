@@ -1,8 +1,56 @@
-{% extends 'base_user.html.twig' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}Log in!{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('template_user/scss/main.css')}}">
+    <link rel="stylesheet" href="{{asset('template_user/scss/skin.css')}}">
 
-{% block body %} 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{asset('template_user/./script/index.js')}}"></script>
+</head>
+
+<body id="wrapper">
+  <section id="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
+                    <ul class="contact_links">
+                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <ul class="social_links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section id="top_banner">
+        <div class="banner">
+            <div class="inner text-center">
+                <h2>Bienvenue sur la page  de connexion enseignant</h2>
+            </div>
+        </div>
+        <div class="page_info">
+            
+        </div>
+
+        
+    </section>
 
  <section id="login-reg">
         <div class="container">
@@ -102,4 +150,3 @@
                 </div>
 
     </section>
-{% endblock %}

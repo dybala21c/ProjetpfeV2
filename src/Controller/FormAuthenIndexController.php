@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormAuthenIndexController extends AbstractController
 {
     /**
-     * @Route("/form/authen/index", name="form_authen_index")
+     * @Route("/", name="form_authen_index")
      */
     public function index()
     { 
