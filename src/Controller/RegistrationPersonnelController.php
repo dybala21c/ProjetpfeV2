@@ -49,8 +49,6 @@ class RegistrationPersonnelController extends AbstractController
 
      /**
      * @Route("/list", name="list_personnel", methods={"GET"})
-     * 
-     * @IsGranted("ROLE_ADMIN") 
      */
     public function index(Request $request,PaginatorInterface $paginatorInterface)
     {
@@ -72,8 +70,6 @@ class RegistrationPersonnelController extends AbstractController
 
     /**
      * @Route("/{id}", name="personnel_show", methods={"GET"})
-     * 
-     * @IsGranted("ROLE_ADMIN") 
      */
     public function show($id)
     {

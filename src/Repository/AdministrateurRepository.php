@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Admin;
+use App\Entity\Administrateur;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -10,16 +10,16 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @method Admin|null find($id, $lockMode = null, $lockVersion = null)
- * @method Admin|null findOneBy(array $criteria, array $orderBy = null)
- * @method Admin[]    findAll()
- * @method Admin[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Administrateur|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Administrateur|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Administrateur[]    findAll()
+ * @method Administrateur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AdminRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
+class AdministrateurRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Admin::class);
+        parent::__construct($registry, Administrateur::class);
     }
 
     /**
@@ -27,7 +27,7 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
      */
     public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
     {
-        if (!$user instanceof Admin) {
+        if (!$user instanceof Administrateur) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
         }
 
@@ -37,7 +37,7 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
     }
 
     // /**
-    //  * @return Admin[] Returns an array of Admin objects
+    //  * @return Administrateur[] Returns an array of Administrateur objects
     //  */
     /*
     public function findByExampleField($value)
@@ -54,7 +54,7 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
     */
 
     /*
-    public function findOneBySomeField($value): ?Admin
+    public function findOneBySomeField($value): ?Administrateur
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

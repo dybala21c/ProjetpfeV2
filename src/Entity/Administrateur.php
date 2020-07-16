@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\AdminRepository;
+use App\Repository\AdministrateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=AdminRepository::class)
+ * @ORM\Entity(repositoryClass=AdministrateurRepository::class)
  */
-class Admin implements UserInterface
+class Administrateur implements UserInterface
 {
     /**
      * @ORM\Id()

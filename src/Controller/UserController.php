@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Annonce;
-use App\Entity\Enseignant;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -49,8 +49,6 @@ class EnseignantRegistrationController extends AbstractController
     
      /**
      * @Route("/liste", name="list_enseignant", methods={"GET"})
-     * 
-     * @IsGranted("ROLE_ADMIN") 
      */
     public function index(Request $request,PaginatorInterface $paginatorInterface)
     {

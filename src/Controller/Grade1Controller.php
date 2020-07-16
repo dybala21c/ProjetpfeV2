@@ -13,8 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/grade1")
- * 
- * @IsGranted("ROLE_ADMIN") 
  */
 class Grade1Controller extends AbstractController
 {
